@@ -1,0 +1,84 @@
+.contacts {
+    max-width: 1230px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.contacts-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contacts-table-span {
+    color: red;
+}
+
+.contacts-table {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.contacts-table th,
+.contacts-table td {
+    padding: 20px 0;
+}
+
+.contacts-table th {
+    width: 30%;
+    text-align: left;
+}
+
+.contacts-table td {
+    width: 70%;
+}
+
+.contacts-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+input[type="radio"] {
+    accent-color: rgb(147, 130,116);
+}
+
+.contacts-item input,
+.contacts-item textarea {
+    flex: 1;
+    width: 100%;
+    border: none;
+    padding: 7px;
+    background-color: #f4f4f4;
+}
+
+.contacts-item textarea {
+    height: 100px;
+    resize: none;
+}
+
+.contacts-button {
+    text-align: center;
+}
+
+.contacts-button button {
+    padding: 5px 20px;
+    background-color: #82746b;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}

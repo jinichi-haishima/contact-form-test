@@ -1,0 +1,61 @@
+.confirm {
+    max-width: 1230px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.confirm-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.confirm-table {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border: solid 1px #ded7d1;
+    border-collapse: collapse;
+}
+
+.confirm-table th,
+.confirm-table td {
+    padding: 20px 30px;
+    border: solid 1px #ded7d1;
+}
+
+.confirm-table th {
+    width: 30%;
+    text-align: left;
+    background-color: #baa899;
+    color: #dcd4cb;
+}
+
+.confirm-table td {
+    width: 70%;
+}
+
+.confirm-button {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px auto;
+    max-width: 200px;
+}
+
+.submit-button,
+.modify-button {
+    padding: 5px 25px;
+    cursor: pointer;
+    border: none;
+}
+
+.submit-button {
+    background-color: #82746b;
+    border: none;
+    color: #fff;
+}
+
+.modify-button {
+    background-color: #fff;
+    text-decoration: underline;
+    color: rgb(147, 130, 116);
+}

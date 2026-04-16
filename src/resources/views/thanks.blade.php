@@ -8,10 +8,13 @@
 @endsection
 
 @section('contact')
-<div class="thanks">
-    <p>お問い合わせありがとうございました</p>
-    <button>
-        <a href="">home</a>
-    </button>
+<div class="thanks-container">
+    <div class="thanks-background">Thank you</div>
+
+    <div class="thanks-content">
+        <p class="thanks-message">お問い合わせありがとうございました</p>
+        <a href="/" class="thanks-button">HOME</a>
+    </div>
+
 </div>
 @endsection

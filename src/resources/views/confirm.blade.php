@@ -63,8 +63,14 @@
     </table>
     <div class="confirm-button">
         <button class="submit-button">送信</button>
-        <button class="modify-button" onclick="history.back()">修正</button>
-    </div>
     </form>
+        <form action="/contact/back" method="post">
+            @csrf
+            @foreach ($contacts as $key => $value)
+                <input type="hidden" name="{{ $key }}" value="{{ $value }}">
+            @endforeach
+            <button class="modify-button">修正する</button>
+        </form>
+    </div>
 </div>
 @endsection

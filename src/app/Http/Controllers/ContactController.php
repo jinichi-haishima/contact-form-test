@@ -39,8 +39,13 @@ class ContactController extends Controller
         $contact->category_id = $request->category_id;
         $contact->detail = $request->detail;
         $contact->save();
+
         return view ('thanks');
     }
 
+    public function back(Request $request)
+    {
+        return redirect('/')->withInput($request->all());
+    }
 }
 

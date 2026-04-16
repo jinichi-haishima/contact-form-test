@@ -1,3 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: serif;
+    color: rgb(147, 130, 116);
+}
+
 .header {
     border-bottom: 1px solid #f7f7f6;
 }
@@ -5,14 +16,30 @@
 .header-inner {
     padding: 15px;
     text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .header-title {
     font-size: 30px;
-    color:rgb(147, 130, 116);
 }
 
-body {
-    font-family: serif;
-    color: rgb(147, 130, 116);
+.header-nav {
+    position: absolute;
+    right: 100px;
+}
+
+.nav-button {
+    padding: 5px 20px;
+    background-color: #f6f6f6;
+    color: #e2d5c9;
+    cursor: pointer;
+    border: none;
+}
+
+.nav-button a {
+    color: #e2d5c9;
+    text-decoration: none;
 }

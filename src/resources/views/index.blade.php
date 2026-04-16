@@ -125,6 +125,7 @@
                 <th>お問い合わせの種類<span class="contacts-table-span">※</span></th>
                 <td class="contacts-item">
                     <select name="category_id">
+                        <option value="" disabled selected>選択してください</option>
                         @foreach ($categories as $category)
                         <option value="{{ ($category->id) }}">{{ ($category->content) }}</option>
                         @endforeach
@@ -144,7 +145,7 @@
             <tr>
                 <th>お問い合わせ内容<span class="contacts-table-span">※</span></th>
                 <td class="contacts-item">
-                    <textarea name="detail" id="" placeholder="お問い合わせ内容をご記載ください" value="{{ old('detail') }}"></textarea>
+                    <textarea name="detail" id="detail" placeholder="お問い合わせ内容をご記載ください">{{ old('detail') }}</textarea>
                 </td>
             </tr>
             <tr>
@@ -157,8 +158,8 @@
                 </td>
             </tr>
             @enderror
-         </table>
-         <div class="contacts-button">
+        </table>
+        <div class="contacts-button">
             <button type="submit">確認画面</button>
         </div>
     </form>

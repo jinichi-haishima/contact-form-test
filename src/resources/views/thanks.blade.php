@@ -10,11 +10,9 @@
 @section('contact')
 <div class="thanks-container">
     <div class="thanks-background">Thank you</div>
-
     <div class="thanks-content">
         <p class="thanks-message">お問い合わせありがとうございました</p>
         <a href="/" class="thanks-button">HOME</a>
     </div>
-
 </div>
 @endsection

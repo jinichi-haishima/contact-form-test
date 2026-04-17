@@ -47,8 +47,8 @@
     flex: 1;
 }
 
-input[type="radio"] {
-    accent-color: rgb(147, 130,116);
+.gender-label {
+    accent-color: rgb(147, 130, 116);
 }
 
 .contacts-item input,
@@ -67,7 +67,7 @@ input[type="radio"] {
     background-color: #f4f4f4;
 }
 
-select[name="category_id"] {
+.contacts-select {
     color: #707070;
 }
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,11 +32,11 @@
                 <div class="header-nav-item">
                     @if (Route::is('login'))
                     <button class="nav-button">
-                    <a href="/register">register</a>
+                        <a href="/register">register</a>
                     </button>
                     @elseif (Route::is('register'))
                     <button class="nav-button">
-                    <a href="/login">Login</a>
+                        <a href="/login">Login</a>
                     </button>
                     @else
                     @endif
@@ -48,4 +49,5 @@
         @yield('contact')
     </main>
 </body>
+
 </html>

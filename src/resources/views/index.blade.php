@@ -14,7 +14,7 @@
                 <th>お名前<span class="contacts-table-span">※</span></th>
                 <td class="contacts-item">
                     <input type="text" name="last_name" placeholder="例：山田" value="{{ old('last_name') }}">
-                    <input type="text" name="first_name"placeholder="例：太郎" value="{{ old('first_name') }}">
+                    <input type="text" name="first_name" placeholder="例：太郎" value="{{ old('first_name') }}">
                 </td>
             </tr>
             @if ($errors->has('fullname')||$errors->has('last_name')||$errors->has('first_name'))
@@ -36,15 +36,12 @@
             <tr>
                 <th>性別<span class="contacts-table-span">※</span></th>
                 <td>
-                    <label>
-                        <input type="radio" name="gender" value="1" checked> 男性
-                    </label>
-                    <label>
-                        <input type="radio" name="gender" value="2"> 女性
-                    </label>
-                    <label>
-                        <input type="radio" name="gender" value="3"> その他
-                    </label>
+                    <input type="radio" name="gender" value="1" class="gender-label" {{ old('gender', '1' )=='1'
+                        ? 'checked' : '' }}> 男性
+                    <input type="radio" name="gender" value="2" class="gender-label" {{ old('gender')=='2' ? 'checked'
+                        : '' }}> 女性
+                    <input type="radio" name="gender" value="3" class="gender-label" {{ old('gender')=='3' ? 'checked'
+                        : '' }}> その他
                 </td>
             </tr>
             @error('gender')
@@ -87,15 +84,10 @@
             <tr>
                 <th></th>
                 <td colspan="2" class="error-message">
-                    @error('tel1')
-                    {{ $message }}
-                    @enderror
-                    @error('tel2')
-                    {{ $message }}
-                    @enderror
-                    @error('tel3')
-                    {{ $message }}
-                    @enderror
+                    @php
+                    $telError = $errors->first('tel1') ?: ($errors->first('tel2') ?: $errors->first('tel3'));
+                    @endphp
+                    {{ $telError }}
                 </td>
             </tr>
             @endif
@@ -124,10 +116,11 @@
             <tr>
                 <th>お問い合わせの種類<span class="contacts-table-span">※</span></th>
                 <td class="contacts-item">
-                    <select name="category_id">
+                    <select name="category_id" class="contacts-select">
                         <option value="" disabled selected>選択してください</option>
                         @foreach ($categories as $category)
-                        <option value="{{ ($category->id) }}">{{ ($category->content) }}</option>
+                        <option value="{{ $category->id }}" {{ old('category_id')==$category->id ? 'selected' : '' }}>{{
+                            $category->content }}</option>
                         @endforeach
                     </select>
                 </td>
@@ -148,8 +141,8 @@
                     <textarea name="detail" id="detail" placeholder="お問い合わせ内容をご記載ください">{{ old('detail') }}</textarea>
                 </td>
             </tr>
-            <tr>
             @error('detail')
+            <tr>
                 <th></th>
                 <td class="error-message">
                     @error('detail')

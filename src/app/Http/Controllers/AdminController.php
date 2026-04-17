@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -12,7 +12,6 @@ class AdminController extends Controller
      // クエリビルダのインスタンスを作成
     public function buildSearchQuery(Request $request)
     {
-        $categories = Category::all();
         $query = Contact::query();
 
         if ($request->filled('keyword')) {

@@ -1,5 +1,5 @@
 ・アプリケーション名
-    お問い合わせフォーム
+    お問い合わせフォーム（FashionablyLate）
 
 環境構築
 ・Dockerビルド
@@ -9,19 +9,22 @@
 ・Laravel環境構築
 	docker-compose exec php bash
 	composer install
-	cp env.example env
-	php artisan key generate
+	cp env.example .env
+	php artisan key:generate
 	php artisan migrate
-	php artisan db seed
+	php artisan db:seed
 
 ・開発環境
 	お問い合わせ画面：http://localhost/
-	ユーザー登録：http://localhost/
+	ユーザー登録：http://localhost/regisrer
+	ログイン画面：http://localhost/login
+	管理画面：http://localhost/admin
 	phpmyadmin：http://localhost:8080/
 
 ・使用技術（実行環境）
-	php:8.1-fpm
+	PHP:8.1-fpm
 	Laravel:8.83.8
-	MySQL:8.0.26（platform:linux/amd64 追記）
-	nginx:1.21.1
-	phpmyadmin
+	MySQL:8.0.26
+	Nginx:1.21.1
+	PhpMyadmin
+	Laravel Fortify

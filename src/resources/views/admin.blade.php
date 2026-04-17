@@ -14,49 +14,59 @@
             <div class="modal-header">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-        <div class="modal-body">
-            <table class="table table-borderless mb-0">
-                <tr class="modal-tr">
-                    <th class="modal-th" style="width: 30%;">名前</th>
-                    <td class="modal-td">{{ $contact->last_name }}  {{ $contact->first_name }}</td>
-                </tr>
-                <tr class="modal-tr">
-                    <th class="modal-th" style="width: 30%;">性別</th>
-                    <td class="modal-td">@if($contact->gender=="1")男性@elseif($contact->gender=="2")女性@elseその他@endif</td>
-                </tr>
-                <tr class="modal-tr">
-                    <th class="modal-th" style="width: 30%;">メールアドレス</th>
-                    <td class="modal-td">{{ $contact->email }}</td>
-                </tr>
-                <tr class="modal-tr">
-                    <th class="modal-th" style="width: 30%;">電話番号</th>
-                    <td class="modal-td">{{ $contact->tel }}</td>
-                </tr>
-                <tr class="modal-tr">
-                    <th class="modal-th""modal-th" style="width: 30%;">住所</th>
-                    <td class="modal-td">{{ $contact->address }}</td>
-                </tr>
-                <tr class="modal-tr">
-                    <th class="modal-th" style="width: 30%;">建物名</th>
-                    <td class="modal-td">{{ $contact->building_name }}</td>
-                </tr>
-                <tr class="modal-tr">
-                    <th class="modal-th" style="width: 30%;">お問い合わせの種類</th>
-                    <td class="modal-td">{{ $contact->category->content }}</td>
-                </tr>
-                <tr class="modal-tr">
-                    <th class="modal-th" style="width: 30%;">お問い合わせ内容</th>
-                    <td class="modal-td">{{ $contact->contact }}</td>
-                </tr>
-            </table>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">削除</button>
-        </div>
+            <div class="modal-body">
+                <table class="table table-borderless mb-0">
+                    <tr class="modal-tr">
+                        <th class="modal-th" style="width: 30%;">名前</th>
+                        <td class="modal-td">{{ $contact->last_name }}  {{ $contact->first_name }}</td>
+                    </tr>
+                    <tr class="modal-tr">
+                        <th class="modal-th" style="width: 30%;">性別</th>
+                        <td class="modal-td">@if($contact->gender=="1")男性@elseif($contact->gender=="2")女性@elseその他@endif</td>
+                    </tr>
+                    <tr class="modal-tr">
+                        <th class="modal-th" style="width: 30%;">メールアドレス</th>
+                        <td class="modal-td">{{ $contact->email }}</td>
+                    </tr>
+                    <tr class="modal-tr">
+                        <th class="modal-th" style="width: 30%;">電話番号</th>
+                        <td class="modal-td">{{ $contact->tel }}</td>
+                    </tr>
+                    <tr class="modal-tr">
+                        <th class="modal-th""modal-th" style="width: 30%;">住所</th>
+                        <td class="modal-td">{{ $contact->address }}</td>
+                    </tr>
+                    <tr class="modal-tr">
+                        <th class="modal-th" style="width: 30%;">建物名</th>
+                        <td class="modal-td">{{ $contact->building_name }}</td>
+                    </tr>
+                    <tr class="modal-tr">
+                        <th class="modal-th" style="width: 30%;">お問い合わせの種類</th>
+                        <td class="modal-td">{{ $contact->category->content }}</td>
+                    </tr>
+                    <tr class="modal-tr">
+                        <th class="modal-th" style="width: 30%;">お問い合わせ内容</th>
+                        <td class="modal-td">{{ $contact->contact }}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <form action="{{route('admin.destroy',$contact->id)}}" method="POST" onsubmit="return confirm('本当に削除しますか？');">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">削除</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
 @endforeach
+
+@if (session('success'))
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+@endif
 <!-- 検索 -->
 <div class="admin-container">
     <h2 class="admin-title">Admin</h2>
@@ -79,12 +89,12 @@
             <select class="form-select" name="category_id">
                 <option value="">お問い合わせの種類</option>
                 @foreach ($categories as $category)
-                <option value="{{ $category->id }}" {{ request('category') == $category->id ? 'selected' : '' }}>{{ $category->content }}</option>
+                <option value="{{ $category->id }}" {{ request('category_id') == $category->id ? 'selected' : '' }}>{{ $category->content }}</option>
                 @endforeach
             </select>
         </div>
         <div class="search-item">
-            <input type="date" class="form-control">
+            <input type="date" name="date" class="form-control" value="{{ request('date') }}">
         </div>
         <div class="search-item">
             <button type="submit" class="submit-button">検索</button>
@@ -94,7 +104,9 @@
     </section>
     <div class="export-page">
         <div>
-            <button class="export-button">エクスポート</button>
+            <button class="export-button">
+                <a href="/export">CSVエクスポート</a>
+            </button>
         </div>
         <div class="pagination-wrapper">
         {{ $contacts->links() }}

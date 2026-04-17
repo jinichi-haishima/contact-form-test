@@ -53,6 +53,11 @@
     margin-bottom: 20px;
 }
 
+.export-button a {
+    color: #aea094;
+    text-decoration: none;
+}
+
 .pagination .page-link {
     color: #82746b;
     background-color: #fff;
@@ -83,12 +88,22 @@
     color: #fff;
 }
 
+.search-result-answer-tr:hover {
+    background-color: #f4f4f4;
+    cursor: pointer;
+}
+
 .detail-button {
     padding: 5px 20px;
     background-color: #fcfcfc;
     color: #e3d6c9;
     cursor: pointer;
     border: none;
+}
+
+.detail-button:hover {
+    background-color: #8b7968;
+    transition: background-color 0.3s ease;
 }
 
 .modal-header {
@@ -117,4 +132,13 @@
     border: none;
     padding: 6px 20px;
     cursor: pointer;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px 20px;
+    border: 1px solid #c3e6cb;
+    border-radius: 4px;
+    margin-bottom: 20px;
 }

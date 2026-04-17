@@ -23,3 +23,5 @@ Route::post('/thanks', [ContactController::class, 'store']);
 Route::get('/admin', [AdminController::class, 'index']);
 Route::get('/search', [AdminController::class, 'index']);
 Route::get('/reset', [AdminController::class, 'index']);
+Route::get('/export', [AdminController::class, 'export']);
+Route::delete('/admin/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');

@@ -3,7 +3,7 @@
 
 環境構築
 ・Dockerビルド
-	git clone git@github.com:Estra-Coachtech/laravel-docker-template.git
+	git clone git@github.com:git@github.com:jinichi-haishima/contact-form-test.git
 	docker compose up -d —build
 
 ・Laravel環境構築
